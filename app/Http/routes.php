@@ -26,11 +26,6 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 //authen admin
 
 Route::group(['prefix'=>'admin','middleware' => 'auth'], function () {
-    Route::get('/', function ()    {
-        // admin
-    });
-
-    Route::get('dashboard', function () {
-
-    });
+    Route::controller('/dashboard','Admin\AdminDashboardController');
+    Route::controller('/category','Admin\AdminCategoryController');
 });
